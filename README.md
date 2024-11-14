@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=slice&color=E4EECF&height=300&section=header&text=아코는%20나야%20둘이%20될%20수%20없어&fontSize=60&fontColor=FFFFFF)
+![header](https://capsule-render.vercel.app/api?type=rounded&color=E4EECF&height=300&section=header&text=아코는%20나야%20둘이%20될%20수%20없어&fontSize=60&fontColor=FFFFFF)
 
 <h2 align="center">🍃아코는 나야 둘이 될 수 없어🍃</h2>
 <h3 align="center">공기질 센서를 이용한 공기질 예측 및 제어 프로젝트</h3>
