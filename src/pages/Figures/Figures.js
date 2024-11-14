@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../../components/common/Header/Header';
 import NEBDropdown from '../../components/figures/NEBDropdown/NEBDropdown';
 import PeriodDropdown from '../../components/figures/periodDropdown/periodDropdown';
@@ -15,7 +16,9 @@ import styles from '../Figures/figures.module.css';
 const buildingName = "신공학관";
 
 function Figures() {
-  const [selectedOption, setSelectedOption] = useState('');
+  const { roomNumber } = useParams();  // URL에서 roomNumber 파라미터를 받아옴
+  const navigate = useNavigate();  // useNavigate 훅 사용
+  const [selectedOption, setSelectedOption] = useState(roomNumber || '');  // 초기값으로 roomNumber 설정
   const [selectedValue, setSelectedValue] = useState('');
   const [selectedValues, setSelectedValues] = useState([]);
   const [highlightedIndex, setHighlightedIndex] = useState(null);
@@ -26,10 +29,15 @@ function Figures() {
   useEffect(() => {
     if (selectedOption) {
       setSelectedSensorName(selectedOption);
+      navigate(`/figures/${selectedOption}`);  // URL을 선택된 강의실 번호로 변경
     }
-  }, [selectedOption, setSelectedSensorName]);
+  }, [selectedOption, setSelectedSensorName, navigate]);
 
-  const handleNEBSelect = (value) => setSelectedOption(value);
+  const handleNEBSelect = (value) => {
+    setSelectedOption(value);
+    navigate(`/figures/${value}`);  // 선택된 강의실 번호로 URL 변경
+  };
+
   const handlePeriodSelect = (value) => setSelectedValue(value);
   const handleCheckboxSelect = (values, index) => {
     setSelectedValues(values);
@@ -50,7 +58,7 @@ function Figures() {
                   alt="building"
                   className={styles.titleImg}
                 />
-                <div>{buildingName}</div>
+               <div style={{ fontSize: '25px' }}>{buildingName}</div>
               </div>
               <NEBDropdown onSelect={handleNEBSelect} />
             </div>
@@ -64,7 +72,9 @@ function Figures() {
             <div className={styles.leftContainer}>
               <div className={styles.leftBox}>
                 <div className={styles.select}>
+                  period
                   <PeriodDropdown height='clamp(10px, 5vw, 56px)' onSelect={handlePeriodSelect} />
+                  what
                   <WhatCheckBoxes
                     selectedValues={selectedValues}
                     onSelect={handleCheckboxSelect}

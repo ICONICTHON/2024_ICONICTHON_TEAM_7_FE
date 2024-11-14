@@ -115,7 +115,7 @@
     gap: 1vw;
     width: 90%;
     height: 78%;
-    justify-items: center;
+    justify-items: left;
 }
 
 .verticalLine {
