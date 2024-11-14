@@ -60,7 +60,7 @@ function Figures() {
                 />
                <div style={{ fontSize: '25px' }}>{buildingName}</div>
               </div>
-              <NEBDropdown onSelect={handleNEBSelect} />
+              <NEBDropdown onSelect={handleNEBSelect} defaultValue={selectedOption} />
             </div>
             <TopBox image="tempIcon.png" value={loading ? '--' : sensorData.Temperature?.value} unit="℃" name="temperature" />
             <TopBox image="humidIcon.png" value={loading ? '--' : sensorData.Humidity?.value} unit="%" name="humidity" />
