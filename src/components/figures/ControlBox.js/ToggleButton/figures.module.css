@@ -1,0 +1,76 @@
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #FFB841;
+    width: 96%;
+    aspect-ratio: 6 / 1;
+    padding: clamp(4px, 2%, 100px);
+    margin-top: 0;
+  }
+
+  /* figures.module.css */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+}
+
+.titleTop {
+  font-size: clamp(4px, 1.1vw, 16px);
+  font-weight: bold;
+  display: flex;
+}
+
+.title {
+  font-size: clamp(10px, 1.6vw, 32px); /* 링크 텍스트 크기 설정 */
+  margin: 5% 0;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleImg {
+  width: 26%; /* 아이콘 크기를 고정합니다. */
+  aspect-ratio: 1 / 1.1;
+  margin-right: 0.1%; /* 아이콘과 텍스트 사이의 간격 */
+}
+
+.titleTopImg {
+  width: 10%; /* 아이콘 크기를 고정합니다. */
+  height: auto;
+  margin-left: 0.1%; /* 아이콘과 텍스트 사이의 간격 */
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #F0F0F0;
+  width: 100%;
+  height: 90%;
+  aspect-ratio: 6.8 / 1;
+  margin-top: 0;
+}
+
+
+.leftBox {
+  display: flex;
+  background-color: white;
+  width: 100%;
+  height: 90%;
+  margin-top: 1%;
+  border-radius: 5%;    
+  align-items: center;
+  justify-content: space-evenly;
+  font-weight: bold;
+}
+.leftContainer {
+  width: 64%;
+  height: 100%;
+  margin:auto;
+}

@@ -1,0 +1,77 @@
+.container {
+    width: 19%;
+    height: 80%;
+  }
+  
+  .box {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+  
+    border-radius: clamp(10px, 1vw, 32px);
+    border: 1px solid #FE9535;
+  
+    /* Grid 설정 */
+    display: grid;
+    align-items: center;    /* 세로 중앙 정렬 */
+    justify-items: start;   /* 가로 왼쪽 정렬 */
+    margin: auto;
+    padding: 0 clamp(8px, 20%, 12px);
+  }
+  
+  .dot3{
+    width: 100%;
+    color: #5F6368;
+    font-size: clamp(8px, 2vw, 32px);
+    text-align: end;
+  }
+  .IconCircle {
+    display: flex;
+    align-items: center;
+    width: clamp(16px, 32%, 100px);
+    background-color: #E3E3E3;
+    aspect-ratio: 1 / 1;
+    text-align: center;
+    border-radius: 50%;
+  }
+  
+  .IconImg {
+    width: 60%;
+    aspect-ratio: 1 / 1;
+    text-align: center;
+    font-weight: bold;
+    margin: auto;
+    opacity: 0.66;
+  }
+  
+  .inline {
+    display: flex;
+    align-items: center;
+  }
+  .image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 10px;
+      border-color: #A5A5A5;
+    }
+    
+  .text{
+    text-align: left;  
+    font-weight: bold;
+    font-size: clamp(8px, 2.4vw, 32px);
+    margin-left: 0.8vw;
+  }
+  
+  .unit{
+    font-size: clamp(4px, 1.2vw, 16px);;
+    align-self:end;
+    font-weight: normal;
+  }
+  
+  .name{
+    color: #999393;
+    font-size: clamp(4px, 1.4vw, 16px);
+  }
+  
+  

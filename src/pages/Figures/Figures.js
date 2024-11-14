@@ -3,17 +3,14 @@
 import React, { useState, useContext, useEffect } from 'react';
 import Header from '../../components/common/Header/Header';
 
-import NEBDropdown from '../../components/specific/figures/NEBDropdown/NEBDropdown';
-import PeriodDropdown from '../../components/common/periodDropdown/periodDropdown';
-import WhatCheckBoxes from '../../components/common/whatSelectBox/WhatRadioButtons';
-
-import TopBox from '../../components/specific/figures/TopBox/TopBox';
-
+import NEBDropdown from '../../components/figures/NEBDropdown/NEBDropdown';
+import PeriodDropdown from '../../components/figures/periodDropdown/periodDropdown';
+import WhatCheckBoxes from '../../components/figures/whatSelectBox/WhatRadioButtons';
+import TopBox from '../../components/figures/TopBox/TopBox';
 import styles from '../Figures/figures.module.css';
-
-import LineChart from '../../components/specific/charts/lineChart';
-import ControlBox from '../../components/specific/ControlBox/ControlBox';
-import AlarmScrollBox from '../../components/specific/alarmScrollBox/alarmScrollBox';
+import LineChart from '../../components/figures/charts/lineChart';
+import ControlBox from '../../components/figures/ControlBox.js/ControlBox';
+import AlarmScrollBox from '../../components/figures/alarmScrollBox/alarmScrollBox';
 import { SensorDataContext } from '../../API/SensorDataContext';
 
 const buildingName = "신공학관";
@@ -48,19 +45,15 @@ function Figures() {
     <div className={styles.fullScreenContainer}>
       <Header />
       <div className={styles.mainContent}>
-        <SideBar i='2' />
         <div className={styles.content}>
           <div className={styles.top}>
             <div className={styles.currentRoom}>
               <div className={styles.titleTop}>
                 <div style={{paddingRight: '0.1vw'}}>현재 강의실</div>
-                <div style={{ position: 'relative', display: 'inline-block', width: 'clamp(4px, 1.2vw, 20px)' }}>
-                  <Star classRoom={selectedOption} building={buildingName} selectedFavorited={selectedFavorited}/>
-                </div>
               </div>
               <div className={styles.title}>
                 <img
-                  src={require('../../assets/images/building.png')}
+                  src={require('../../assets/images/building_icon.png')}
                   alt="building"
                   className={styles.titleImg}
                 />

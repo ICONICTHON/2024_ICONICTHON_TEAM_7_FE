@@ -1,0 +1,13 @@
+.line-draw {
+    animation: drawLine 1s forwards;
+  }
+  
+  @keyframes drawLine {
+    0% {
+      stroke-dasharray: 0, 1000; /* 시작할 때는 길이가 0인 선 */
+    }
+    100% {
+      stroke-dasharray: 1000, 0; /* 최종적으로 길이가 1000인 선 */
+    }
+  }
+  
