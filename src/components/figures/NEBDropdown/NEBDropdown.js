@@ -1,10 +1,8 @@
-// NEBDropdown.js
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import styles from './NEBDropdown.module.css';
 
-const CustomDropdown = ({ onSelect, borderColor = '#A5A5A5', borderWidth = '1px', width = '100%' }) => {
+const CustomDropdown = ({ onSelect, borderColor = '#A5A5A5', borderWidth = '1px', width = '100%', defaultValue }) => {
   const [options, setOptions] = useState([
     { value: 3115, label: '3115' },
     { value: 3173, label: '3173' },
@@ -63,6 +61,9 @@ const CustomDropdown = ({ onSelect, borderColor = '#A5A5A5', borderWidth = '1px'
     }),
   };
 
+  // defaultValue에 해당하는 옵션을 찾기
+  const selectedOption = options.find(option => option.value === Number(defaultValue));
+
   return (
     <Select 
       options={options}
@@ -71,6 +72,7 @@ const CustomDropdown = ({ onSelect, borderColor = '#A5A5A5', borderWidth = '1px'
       placeholder={<span className={styles.customPlaceholder}>강의실 선택</span>}
       className={styles.NEBDropdown}
       classNamePrefix="custom-select"
+      defaultValue={selectedOption}  // 초기 선택값 설정
     />
   );
 };
