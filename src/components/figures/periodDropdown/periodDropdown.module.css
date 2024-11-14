@@ -1,0 +1,25 @@
+/* React Select가 생성하는 동적 클래스 이름의 패딩을 0으로 설정 */
+.custom-select__control {
+    padding: 0 !important; /* 컨트롤 영역의 패딩 제거 */
+  }
+  
+  .custom-select__single-value {
+    padding: 0 !important; /* 선택된 값의 패딩 제거 */
+  }
+  
+  .custom-select__placeholder {
+    padding: 0 !important; /* 플레이스홀더의 패딩 제거 */
+  }
+  
+  .custom-select__menu {
+    padding: 0 !important; /* 드롭다운 메뉴의 패딩 제거 */
+  }
+  
+  .custom-select__menu-list {
+    padding: 0 !important; /* 메뉴 리스트의 패딩 제거 */
+  }
+  
+  .custom-select__dropdown-indicator {
+    padding: 0 !important; /* 드롭다운 아이콘의 패딩 제거 */
+  }
+  

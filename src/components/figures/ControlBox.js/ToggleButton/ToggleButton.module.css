@@ -1,0 +1,46 @@
+/* 버튼 컨테이너 스타일 */
+.toggleButton {
+    display: flex;
+    align-items: center;
+    width: clamp(20px,  2.4vw, 44px);
+    height: clamp(12px,  1.2vw, 40px);
+    cursor: pointer;
+    border-radius: 1vw;
+    position: relative;
+    background-color: #E0E0E0; /* 부드러운 기본 색상 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* 비활성 상태 버튼 색상 */
+  .untoggled {
+    background-color: #E0E0E0;
+  }
+  
+  /* 활성 상태 버튼 색상 */
+  .toggled {
+    background-color: #4CAF50; /* 활성화된 상태의 색상 */
+  }
+  
+  /* 원 스타일 */
+  .circle {
+    width: 1vw; /* 버튼 너비의 50% */
+    height: 1vw; /* 버튼의 높이 */
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 원에 부드러운 그림자 추가 */
+    top: 50%; /* 세로 중앙 정렬 */
+    transform: translateY(-50%); /* 세로 중앙 정렬 보정 */
+  }
+  
+  /* 원 위치 조정 */
+  .left {
+    transform: translateX(15%) translateY(-50%); /* 왼쪽 위치 조정 */
+  }
+  
+  .right {
+    transform: translateX(1.2vw) translateY(-50%); /* 오른쪽 끝으로 이동 */
+  }
+  
