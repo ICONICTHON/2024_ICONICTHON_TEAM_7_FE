@@ -1,0 +1,82 @@
+:root {
+    --header-height: 5vw; /* 헤더 전체 높이 */
+  }
+  
+  .all {
+    height: var(--header-height); /* 전체 높이 설정 */
+  }
+  
+  .header {
+    background-color: white;
+    margin: 0% 2%;
+    width: 96%;
+    height: 99%; 
+    display: flex;
+    align-items: center; /* 세로 가운데 정렬 */
+    padding: 0;
+    justify-content: space-between;
+    position: relative;
+  }
+  
+  .nav {
+    width: clamp(120px,36vw,450px); /* 고정 너비로 설정 */
+    display: flex;
+    align-items: center; /* 세로 가운데 정렬 */
+    justify-content: space-around;
+  }
+  
+  .navLink {
+    color: #000000;
+    display: flex;
+    text-decoration: none;
+    align-items: center; /* 세로 가운데 정렬 */
+    font-size: 18px; /* 고정 크기 설정 */
+    padding: 5px;
+    white-space: nowrap;
+  }
+  
+  .navLink:hover {
+    font-weight: bold;
+  }
+  
+  .logo {
+    width:  clamp(120px,16vw,12vw); /* 로고 고정 너비 */
+    height: auto;
+    margin-top: 1%;
+  }
+  
+  .icon {
+    width: clamp(10px, 2.8vw, 36px); /* 아이콘 고정 너비 */
+    height: auto;
+    margin-right: 8px;
+  }
+  
+  .font {
+    font-size: clamp(10px,1.8vw,20px);
+    display: flex;
+    align-items: center; /* 세로 가운데 정렬 */
+  }
+  
+  .separator {
+  
+    align-self: center;
+    border: none;
+    border-top: 1px solid #9f9f9f;
+  
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* 다른 스타일 */
+  }
+  
+  .dateTime {
+    font-size: 16px;
+    color: #333;
+    margin-right: 16px;
+  }
+  
