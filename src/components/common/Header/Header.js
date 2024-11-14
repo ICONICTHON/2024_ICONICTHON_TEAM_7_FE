@@ -19,7 +19,6 @@ const Header = () => {
 
   const GoToRoot = () => {
     navigate("/");
-    window.location.reload();
   };
 
   // 날짜와 시각 포맷 함수
