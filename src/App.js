@@ -12,7 +12,7 @@ function App() {
           {/* 기본 페이지들 */}
           <Route path="/" element={<Main />} />
           <Route path="/figures" element={<Figures />} />
-          
+          <Route path="/figures/:roomNumber" element={<Figures />} /> {/* roomNumber 파라미터 추가 */}
         </Routes>
       </SensorDataProvider>
     </Router>
