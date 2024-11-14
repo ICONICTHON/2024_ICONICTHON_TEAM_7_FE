@@ -167,7 +167,7 @@ function Main() {
             backgroundColor: color,
             borderRadius: "50%",
             transform: "translate(-50%, -50%)", // 중앙 정렬
-            zIndex: 100,
+            zIndex: 10,
             cursor: "pointer",
           }}
           className="animated-shape"

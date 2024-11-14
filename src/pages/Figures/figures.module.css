@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0; 
+     box-sizing: border-box;
+  }
+  .fullScreenContainer {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mainContent {
+    display: flex;  
+    width: 100%;
+    height: calc(100vh - 5vw);
+    background-color: #F0F0F0;
+  }
+  .content {
+    width: 100%;
+    display: flex;  
+    flex-grow: 1;
+    flex-direction: column;
+  }
+  /* top의 초기 높이와 비율 조정 */
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFB841;
+    width: 100%;
+    height: calc(15% + 5vw); 
+    padding: clamp(9px, 1vw, 13px) 2%;
+    margin-top: 0;
+  }
+  .currentRoom{
+    width: 12%; 
+  }
+  
+  .titleTop {
+    font-size: clamp(4px, 1.1vw, 16px);
+    font-weight: bold;
+    display: flex;
+  }
+  
+  .title {
+    font-size: clamp(10px, 1.8vw, 32px);
+    margin: 5% 0;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .titleImg {
+    width: 26%;
+    aspect-ratio: 1 / 1.1;
+    margin-right: 0.1%;
+  }
+  
+  .titleTopImg { 
+     color: #FFD700; 
+     
+    width: 10%;
+    height: auto;
+    margin-left: 0.1%;
+  }
+  
+  .bottom {
+    display: grid;
+    grid-template-columns: 8fr 2fr;
+    gap: 1vw;
+    background-color: #F0F0F0;
+    width: 100%;
+    overflow: hidden;
+    padding: 1% 2%;
+    height: calc(85% - 5vw);
+    padding-bottom: 2vw;
+  }
+  
+  
+  
+  .leftContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    width: 100%;
+    height: 98%;
+    margin: auto;
+  }
+  
+  .leftBox {  
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    display: grid;
+    grid-template-columns: 1fr 0.1fr 4fr; /* 1:0.1:2 비율 */
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5vw;
+    align-items: center;
+    justify-items: center; /* 그리드 아이템을 중앙에 정렬 */
+    font-weight: bold;
+    padding: 2%;
+  }
+  
+  .rightContainer {
+    display: grid;
+    grid-template-rows: 1fr 1fr 0.8fr; /* 1:1:1 비율로 설정 */
+    align-items: center; /* 세로 방향 정렬 */
+    justify-items: center; /* 가로 방향 정렬 */
+    width: 100%;
+    height: 98%;
+    font-weight: bold;
+    margin: auto;
+    gap: 0.8vw;
+  }
+  
+  
+  .select {
+    display: grid;
+    grid-template-rows: 1fr 5fr;  /* 1:2 비율로 두 요소를 배치 */
+    gap: 1vw;  /* 요소 간 간격 */
+    width: 90%;
+    height: 78%;
+    justify-items: center;  /* 가로 정렬을 가운데로 설정 */
+  }
+  
+  
+  .verticalLine {
+    width: 0;          /* 세로선이 되도록 너비를 0으로 설정 */
+    height: 90%;      /* 부모 컨테이너의 전체 높이를 채우도록 설정 */
+    border: 0.1px solid #A5A5A5; /* 세로선의 스타일을 설정 */
+    margin: 10px 0;    /* 상하 여백 */
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* top의 초기 높이와 비율 조정 */
+  .top2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFB841;
+    width: 100%;
+    height: calc(15% + 5vw); 
+    padding: clamp(9px, 1vw, 13px) 2%;
+    margin-top: 0;
+  }
+  
+  
