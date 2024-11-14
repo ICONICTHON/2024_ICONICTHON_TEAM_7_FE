@@ -53,7 +53,7 @@ function Figures() {
               </div>
               <div className={styles.title}>
                 <img
-                  src={require('../../assets/images/building_icon.png')}
+                  src={require('../../assets/images/building.png')}
                   alt="building"
                   className={styles.titleImg}
                 />
@@ -78,7 +78,7 @@ function Figures() {
                     <WhatCheckBoxes
                       selectedValues={selectedValues}
                       onSelect={handleCheckboxSelect}
-                      borderColor="#A5A5A5"
+                      borderColor="#7DBD73"
                       borderWidth="2px"
                     />
                   </div>
