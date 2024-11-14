@@ -6,6 +6,7 @@ const controlCriteria = ({ title }) => {
     <div className={styles.Container}>
       <div className={styles.title}>{title}</div>
       <div className={styles.criteriaBox}>
+        <div style={{width:'100%'}}>
         <div className={styles.criteriaHeader}>Over than</div>
         <div className={styles.criteriaItem}>
           <span>temperature</span>
@@ -26,6 +27,7 @@ const controlCriteria = ({ title }) => {
         <div className={styles.criteriaItem}>
           <span>Noise</span>
           <span>100</span>
+        </div>
         </div>
       </div>
     </div>
