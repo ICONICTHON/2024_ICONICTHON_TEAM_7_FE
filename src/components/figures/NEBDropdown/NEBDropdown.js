@@ -1,45 +1,19 @@
 // NEBDropdown.js
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Select from 'react-select';
 import styles from './NEBDropdown.module.css';
-import API from '../../../API/api';
 
 const CustomDropdown = ({ onSelect, borderColor = '#A5A5A5', borderWidth = '1px', width = '100%' }) => {
-  const [options, setOptions] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {      
-    const token = localStorage.getItem("token");
-    const fetchData = async () => {
-      const encodedBuilding = encodeURIComponent('신공학관');
-      try {
-        const endpoint = `/api/classrooms/myFavorites?building=${encodedBuilding}&favoriteFirst=false&orderDirection=asc`;
-        const responses = await API.get(endpoint, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });  
-
-        const formattedData = responses.data
-          .filter(room => room.sensorType === 'Air')
-          .map(room => ({
-            value: room.name,
-            label: room.name,
-            favorited: room.favorited
-          }));
-
-        setOptions(formattedData);
-      } catch (e) {
-        console.error("API 오류: ", e);
-        setOptions([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const [options, setOptions] = useState([
+    { value: 3115, label: '3115' },
+    { value: 3173, label: '3173' },
+    { value: 4147, label: '4147' },
+    { value: 5145, label: '5145' },
+    { value: 5147, label: '5147' },
+    { value: 6119, label: '6119' },
+    { value: 6144, label: '6144' },
+  ]);
 
   const customStyles = {
     control: (provided) => ({
@@ -92,12 +66,11 @@ const CustomDropdown = ({ onSelect, borderColor = '#A5A5A5', borderWidth = '1px'
   return (
     <Select 
       options={options}
-      onChange={option => onSelect(option.value, option.favorited)}  // 선택된 강의실과 favorited 값 함께 전달
+      onChange={option => onSelect(option.value)}  // 선택된 강의실 값만 전달
       styles={customStyles}
       placeholder={<span className={styles.customPlaceholder}>강의실 선택</span>}
       className={styles.NEBDropdown}
       classNamePrefix="custom-select"
-      isLoading={loading}
     />
   );
 };
