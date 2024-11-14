@@ -274,7 +274,7 @@
   background-color: #f0fbeb;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 16px;
-  z-index: 10;
+  z-index: 100;
 }
 
 .sensorImg {

@@ -320,8 +320,8 @@ function Main() {
                           sensorData.Temperature?.value,
                           "temperature"
                         ),
-                        width: "12px",
-                        height: "12px",
+                        width: "14px",
+                        height: "14px",
                         borderRadius: "50%",
                         marginLeft: "16px",
                         boxShadow:
@@ -346,8 +346,8 @@ function Main() {
                           sensorData.Humidity?.value,
                           "humidity"
                         ), // 온도 값에 따라 색상 설정
-                        width: "12px",
-                        height: "12px",
+                        width: "14px",
+                        height: "14px",
                         borderRadius: "50%",
                         marginLeft: "16px",
                         boxShadow:
@@ -372,8 +372,8 @@ function Main() {
                           sensorData.TVOC?.value,
                           "tvoc"
                         ), // 온도 값에 따라 색상 설정
-                        width: "12px",
-                        height: "12px",
+                        width: "14px",
+                        height: "14px",
                         borderRadius: "50%",
                         marginLeft: "16px",
                         boxShadow:
@@ -400,8 +400,8 @@ function Main() {
                           sensorData.PM2_5MassConcentration?.value,
                           "pm2.5"
                         ),
-                        width: "12px",
-                        height: "12px",
+                        width: "14px",
+                        height: "14px",
                         borderRadius: "50%",
                         marginLeft: "16px",
                         boxShadow:
@@ -427,8 +427,8 @@ function Main() {
                           sensorData.AmbientNoise?.value,
                           "noise"
                         ),
-                        width: "12px",
-                        height: "12px",
+                        width: "14px",
+                        height: "14px",
                         borderRadius: "50%",
                         marginLeft: "16px",
                         boxShadow: "0 4px 8px rgba(0, 0, 0, 0.261)",
@@ -448,8 +448,8 @@ function Main() {
                     <span
                       style={{
                         backgroundColor: "green",
-                        width: "12px",
-                        height: "12px",
+                        width: "14px",
+                        height: "14px",
                         borderRadius: "50%",
                         marginLeft: "16px", // 왼쪽에 간격 추가
                         boxShadow:
