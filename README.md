@@ -3,7 +3,7 @@
 
 <h2 align="center">🐘아코는 나야 둘이 될 수 없어🐘</h2>
 <h3 align="center">🍃1. 스마트 시티 스마트캠퍼스를 위한 디지털 융합 제품 혹은 소프트웨어 개발🍃</h3>
-<h4 align="center">Frontend</h4>
+
 
 <h1>👋 Members</h1>
 
