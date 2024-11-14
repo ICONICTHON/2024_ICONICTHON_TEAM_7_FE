@@ -133,7 +133,7 @@ function Main() {
 
   const handleClick = (id) => {
     // 클릭 시 해당 강의실 페이지로 이동
-    navigate(`/figures`);
+    navigate(`/figures/${id}`);
   };
 
   const getSensorIAQValue = (id) => {
