@@ -12,7 +12,6 @@ import singongImage from "../../assets/images/singong.png";
 function Main() {
   const [popupContent, setPopupContent] = useState(null);
   const [selectedBuilding, setSelectedBuilding] = useState("신공학관");
-
   const [dateTime, setDateTime] = useState(new Date());
   const [forecast, setForecast] = useState(null);
   const [forecast2, setForecast2] = useState(null);
@@ -27,7 +26,6 @@ function Main() {
     }
     setPopupContent(buildingInfo);
   };
-
   // 날씨 안내 멘트 생성 함수
   const getWeatherAdvice = () => {
     if (!forecast || !forecast2) {
@@ -89,37 +87,49 @@ function Main() {
   }, []);
 
   const imageRef = useRef(null);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [sensorData, setSensorData] = useState(null); // 센서 데이터 상태 추가
 
   const { data, setSelectedSensorName, loading, error } =
     useContext(SensorDataContext);
 
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-
-  const location = useLocation();
-  const Id = location.pathname.split("/").pop(); // URL에서 ID 가져오기
-
-  useEffect(() => {
-    if (Id) {
-      setSelectedSensorName(Id); // 선택된 강의실 ID로 센서 데이터 업데이트
-    }
-    console.log("현재 센서 ID:", Id); // URL에서 가져온 ID 확인
-  }, [Id, setSelectedSensorName]);
-
-  // **sensorData 구조 확인 로그 추가**
-  useEffect(() => {
-    console.log("Main.js - sensorData 전체 구조 확인:", data); // 전체 데이터를 출력
-  }, [data]);
-
   // 좌표 저장
   const coordinates = [
-    { id: "6144", x: 137, y: 116 },
-    { id: "6119", x: 366, y: 125 },
-    { id: "5147", x: 184, y: 213 },
-    { id: "5145", x: 192, y: 237 },
-    { id: "4142", x: 262, y: 388 },
-    { id: "3115", x: 464, y: 442 },
-    { id: "3173", x: 488, y: 482 },
+    { building: "신공학관", id: "6144", x: 137, y: 116 },
+    { building: "신공학관", id: "6119", x: 366, y: 125 },
+    { building: "신공학관", id: "5147", x: 184, y: 213 },
+    { building: "신공학관", id: "5145", x: 192, y: 237 },
+    { building: "신공학관", id: "4142", x: 262, y: 388 },
+    { building: "신공학관", id: "3115", x: 464, y: 442 },
+    { building: "신공학관", id: "3173", x: 488, y: 482 },
   ];
+
+  useEffect(() => {
+    const fetchSensorData = async () => {
+      if (hoveredIndex !== null) {
+        const hoveredCoord = coordinates[hoveredIndex];
+        if (!hoveredCoord) return; // hoveredCoord가 없을 경우 반환
+        try {
+          const endpoint = `/api/sensorData/recent/classroom?building=${encodeURIComponent(
+            hoveredCoord.building
+          )}&name=${encodeURIComponent(hoveredCoord.id)}`;
+          console.log("API 요청 URL: ", endpoint);
+          const response = await API.get(endpoint);
+          setSensorData(response.data); // API에서 가져온 데이터 설정
+          console.log(
+            `Fetched sensor data for ${hoveredCoord.id}`,
+            response.data
+          );
+        } catch (error) {
+          console.error("Error fetching sensor data:", error);
+          setSensorData(null);
+        }
+      } else {
+        setSensorData(null);
+      }
+    };
+    fetchSensorData();
+  }, [hoveredIndex]); // hoveredIndex 변경 시마다 데이터 요청
 
   const handleClick = (id) => {
     // 클릭 시 해당 강의실 페이지로 이동
@@ -202,72 +212,80 @@ function Main() {
                 }}
               />
               {/* 각 항목 표시 */}
-              <div className={styles.sensorText}>
-                <img
-                  src="/Icons/img_temp.png"
-                  alt="온도"
-                  className={styles.sensorImg}
-                />
-                <span>온도</span>
-                <span style={{ marginLeft: "auto" }}>
-                  {loading ? "--" : "24°C"}
-                </span>
-              </div>
-              <div className={styles.sensorText}>
-                <img
-                  src="/Icons/img_mois.png"
-                  alt="습도"
-                  className={styles.sensorImg}
-                />
-                <span>습도</span>
-                <span style={{ marginLeft: "auto" }}>
-                  {loading ? "--" : "56%"}
-                </span>
-              </div>
-              <div className={styles.sensorText}>
-                <img
-                  src="/Icons/img_tvoc.png"
-                  alt="TVOC"
-                  className={styles.sensorImg}
-                />
-                <span>TVOC</span>
-                <span style={{ marginLeft: "auto" }}>
-                  {loading ? "--" : "23"}
-                </span>
-              </div>
-              <div className={styles.sensorText}>
-                <img
-                  src="/Icons/img_pm2.5.png"
-                  alt="PM2.5"
-                  className={styles.sensorImg}
-                />
-                <span>PM 2.5</span>
-                <span style={{ marginLeft: "auto" }}>
-                  {loading ? "--" : "150um"}
-                </span>
-              </div>
-              <div className={styles.sensorText}>
-                <img
-                  src="/Icons/img_noise.png"
-                  alt="소음"
-                  className={styles.sensorImg}
-                />
-                <span>소음</span>
-                <span style={{ marginLeft: "auto" }}>
-                  {loading ? "--" : "89dB"}
-                </span>
-              </div>
-              <div className={styles.sensorText}>
-                <img
-                  src="/Icons/img_sensor.png"
-                  alt="센서 상태"
-                  className={styles.sensorImg}
-                />
-                <span>센서 상태</span>
-                <span style={{ marginLeft: "auto" }}>
-                  {loading ? "--" : "ON"}
-                </span>
-              </div>
+              {sensorData ? (
+                <>
+                  <div className={styles.sensorText}>
+                    <img
+                      src="/Icons/img_temp.png"
+                      alt="온도"
+                      className={styles.sensorImg}
+                    />
+                    <span>온도</span>
+                    <span style={{ marginLeft: "auto" }}>
+                      {loading ? "--" : `${sensorData.Temperature?.value}°C`}
+                    </span>
+                  </div>
+                  <div className={styles.sensorText}>
+                    <img
+                      src="/Icons/img_mois.png"
+                      alt="습도"
+                      className={styles.sensorImg}
+                    />
+                    <span>습도</span>
+                    <span style={{ marginLeft: "auto" }}>
+                      {loading ? "--" : `${sensorData.Humidity?.value}%`}
+                    </span>
+                  </div>
+                  <div className={styles.sensorText}>
+                    <img
+                      src="/Icons/img_tvoc.png"
+                      alt="TVOC"
+                      className={styles.sensorImg}
+                    />
+                    <span>TVOC</span>
+                    <span style={{ marginLeft: "auto" }}>
+                      {loading ? "--" : `${sensorData.TVOC?.value}㎍/m³`}
+                    </span>
+                  </div>
+                  <div className={styles.sensorText}>
+                    <img
+                      src="/Icons/img_pm2.5.png"
+                      alt="PM2.5"
+                      className={styles.sensorImg}
+                    />
+                    <span>PM 2.5</span>
+                    <span style={{ marginLeft: "auto" }}>
+                      {loading
+                        ? "--"
+                        : `${sensorData.PM2_5MassConcentration?.value}㎍/m³`}
+                    </span>
+                  </div>
+                  <div className={styles.sensorText}>
+                    <img
+                      src="/Icons/img_noise.png"
+                      alt="소음"
+                      className={styles.sensorImg}
+                    />
+                    <span>소음</span>
+                    <span style={{ marginLeft: "auto" }}>
+                      {loading ? "--" : `${sensorData.AmbientNoise?.value}db`}
+                    </span>
+                  </div>
+                  <div className={styles.sensorText}>
+                    <img
+                      src="/Icons/img_sensor.png"
+                      alt="센서 상태"
+                      className={styles.sensorImg}
+                    />
+                    <span>센서 상태</span>
+                    <span style={{ marginLeft: "auto" }}>
+                      {loading ? "--" : "ON"}
+                    </span>
+                  </div>
+                </>
+              ) : (
+                <>""</>
+              )}
             </div>
           )}
         </div>
