@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=7CBF75&height=300&section=header&text=IoT%20센서를%20활용한%0A실내%20학습%20환경%20개선%20및%20AI%20자동제어%20시스템%20개발&fontSize=26&fontColor=FFFFFF)
+![header](https://capsule-render.vercel.app/api?type=waving&color=7CBF75&height=250&section=header&text=IoT%20센서를%20활용한%0A실내%20학습%20환경%20개선%20및%20AI%20자동제어%20시스템%20개발&fontSize=28&fontColor=FFFFFF)
 
 
 <h2 align="center">🐘아코는 나야 둘이 될 수 없어🐘</h2>
