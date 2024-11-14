@@ -13,7 +13,7 @@
 | Leader, FE | 이수민 | 컴퓨터공학전공 | dltnals0927@naver.com |
 | Member, FE | 이다은 | 컴퓨터공학전공 | teresa.leede@gmail.com |
 | Member, AI | 남민주 | 컴퓨터공학전공 | nampink4322@naver.com |
-| Member, BE | 송명우 | 컴퓨터공학전공 | auddn207@naver.com |
+| Member, BE&IoT  | 송명우 | 컴퓨터공학전공 | auddn207@naver.com |
 | Member, FS | 김재훈 | ai 소프트웨어 융합 학부 | luke6636988@gmail.com |
 
 <h1>🧑🏻‍💻 Skills</h1>
