@@ -1,235 +1,272 @@
 /*Main.module.css*/
 .mainContainer {
-    padding: 20px;
-    height: 100vh; /* 전체 화면 높이를 맞추기 위해 추가 */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* 수직 중앙 정렬 */
-  }
-
-  
-  /* 애니메이션 1 */
-  @keyframes fadeInAndGrow {
-    0% {
-      opacity: 0;
-      transform: scale(0.8); /* 크기를 80%로 줄여 시작 */
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1); /* 원래 크기로 돌아옴 */
-    }
-  }
-  /* 애니메이션 2 */
-  @keyframes slideDown {
-    0% {
-      opacity: 0;
-      transform: translateY(-50px); /* 위에서 시작 */
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0); /* 원래 위치로 이동 */
-    }
-  }
-  /* 애니메이션 3 */
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  /* 애니메이션 4 */
-  @keyframes fadeInLeft {
-    0% {
-      opacity: 0;
-      transform: translate3d(-8%, 0, 0);
-    }
-  
-    to {
-      opacity: 1;
-      transform: translateZ(0);
-    }
-  }
-  
-  /*margin-bottom 건들지 말 것,,,*/
-  .topMessage {
-    display: flex;
-    margin-left: 6%;
-    margin-top:3%;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-    animation: fadeInLeft 1.5s;
-    align-items: center; /* 아이콘과 텍스트 수직 중앙 정렬 */
-  }
-  
-  .topMessageDetail {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* 수평 중앙 정렬 */
-    height: 80%; /* 부모 요소 높이에 맞추기 위해 추가 */
-    width: 100%;
-    margin: 0 auto;
-  }
-  
-  .buildings {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* 3개의 고정 칸 생성 */
-    gap: 20px;
-    width: 70%;
-    align-items: flex-start;
-    margin-top: -180px;
-    margin-left: 40px;
-  }
-  
-  /* 각 건물의 위치 고정 */
-  .buildings > div:nth-child(1) {
-    left: 10%;
-    top: 40%;
-  }
- 
-  
-  /**/
-  .building {
-    position: absolute;
-    text-align: center;
-    cursor: pointer;
-    margin: 0 4px; /* 건물들 사이에 여백을 추가 */
-    width: 200px; /* 고정된 넓이 */
-    height: 300px; /* 고정된 높이 */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .buildingName{
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .building img {
-    width: 300px;
-    height: auto;
-    max-height: 300px;
-    filter: drop-shadow(0px 8px 8px #c7c7c7);
-  }
-  
-  .sensorInfo {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    font-size: 100%;
-  }
-  
-  .greenLight {
-    width: 10px;
-    height: 10px;
-    background-color: green;
-    display: inline-block;
-    border-radius: 50%;
-  }
-  
-  .redLight {
-    width: 10px;
-    height: 10px;
-    background-color: red;
-    display: inline-block;
-    border-radius: 50%;
-  }
-  
-  .weatherAndLogs {
-    width: 22%;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end; /* 오른쪽 끝으로 밀어내기 */
-    gap: 8px;
-    margin-bottom: 15%;
-    margin-right: -10px;
-  }
-  /*날씨*/
-  .weatherInfo {
-  
-    background-color: #e4eecf; /* 오렌지색 배경 */
-    border-radius: 20px 0 0 20px; /* 모서리 */
-    padding: 28px; /* 박스 내부 여백 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.261); /* 부드러운 그림자 */
-    width: 100%; /* 박스가 부모의 너비를 차지하도록 */
-    color: black;
-    z-index: 1;
-  }
-  
-  /* ping icon */
-  .pingIcon {
-    margin-right: 10px;
-    margin-bottom: -4px;
-    font-size: 24px;
-    color: grey;
-  }
-  
-  .weatherInfo h3 {
-    font-size: 32px;
-    margin-bottom: 20px;
-  }
-  .sensorLogs h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .weatherInfo p,
-  .sensorInfo p {
-    margin: 5px 0;
-  }
-  
-  /* 도면도 보여주기 */
-  .additionalContent {
+  padding: 20px;
+  height: 100vh; /* 전체 화면 높이를 맞추기 위해 추가 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 수직 중앙 정렬 */
+}
+/* 애니메이션 3 */
+@keyframes fadeIn {
+  0% {
     opacity: 0;
-    animation: fadeIn 1s forwards 1s; /* 새로운 정보가 서서히 나타남 */
   }
-  
-  .selectedBuildingImage {
-    position: absolute;
-    top: 20%;
-    left: 35%;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* 다른 요소 위에 배치 */
-    cursor: pointer;
+  100% {
+    opacity: 1;
   }
-  
-  .floorplanOverlay img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 8px;
+}
+/* 애니메이션 4 */
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-8%, 0, 0);
   }
-  
-  
-  .divider {
-    display: flex;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    width: 100%;
-    height: 1px;
-    background-color: #ccc;
-    align-items: center;
+
+  to {
+    opacity: 1;
+    transform: translateZ(0);
   }
-  .dividers {
-    margin-top: 20px;
-    margin-bottom: 32px;
-    width: 100%;
-    height: 1px;
-    background-color: #ccc;
-  }
-  
-  .header {
+}
+
+.topMessage {
+  display: flex;
+  margin-left: 6%;
+  margin-top: 3%;
+  width: 400px;
+  animation: fadeInLeft 1.5s;
+  align-items: center; /* 아이콘과 텍스트 수직 중앙 정렬 */
+}
+
+.topMessageDetail {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  text-shadow: 3px 3px 1.5px lightgray;
+  margin-top: 44px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* 수평 중앙 정렬 */
+  height: 80%; /* 부모 요소 높이에 맞추기 위해 추가 */
+  width: 100%;
+  margin: 0 auto;
+}
+
+.buildings {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3개의 고정 칸 생성 */
+  gap: 20px;
+  width: 70%;
+  align-items: flex-start;
+  margin-top: -180px;
+  margin-left: 40px;
+}
+
+/* 각 건물의 위치 고정 */
+.buildings > div:nth-child(1) {
+  left: 10%;
+  top: 40%;
+}
+
+/**/
+.building {
+  position: absolute;
+  text-align: center;
+  cursor: pointer;
+  margin: 0 4px; /* 건물들 사이에 여백을 추가 */
+  width: 200px; /* 고정된 넓이 */
+  height: 300px; /* 고정된 높이 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buildingName {
+  font-size: 32px;
+  font-weight: 600;
+  opacity: 0;
+  animation: fadeIn 1s forwards 1s; /* 새로운 정보가 서서히 나타남 */
+}
+
+.building img {
+  width: 300px;
+  height: auto;
+  max-height: 300px;
+  filter: drop-shadow(0px 8px 8px #c7c7c7);
+  opacity: 0;
+  animation: fadeIn 1s forwards 1s; /* 새로운 정보가 서서히 나타남 */
+}
+
+.sensorInfo {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  font-size: 100%;
+  opacity: 0;
+  animation: fadeIn 1s forwards 1s; /* 새로운 정보가 서서히 나타남 */
+}
+
+.greenLight {
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  display: inline-block;
+  border-radius: 50%;
+  opacity: 0;
+  animation: fadeIn 1s forwards 1s; /* 새로운 정보가 서서히 나타남 */
+}
+
+.redLight {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  display: inline-block;
+  border-radius: 50%;
+  opacity: 0;
+  animation: fadeIn 1s forwards 1s; /* 새로운 정보가 서서히 나타남 */
+}
+
+.weatherAndLogs {
+  width: 24%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end; /* 오른쪽 끝으로 밀어내기 */
+  gap: 8px;
+  margin-bottom: 15%;
+  margin-right: 0.5%;
+}
+/*날씨*/
+.weatherInfo {
+  background-color: #e4eecf;
+  border-radius: 20px 20px 20px 20px; /* 모서리 */
+  padding: 28px; /* 박스 내부 여백 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.261); /* 부드러운 그림자 */
+  width: 100%; /* 박스가 부모의 너비를 차지하도록 */
+  color: black;
+  z-index: 1;
+}
+
+.weatherTemperature {
+  font-size: 5rem;
+  font-weight: bold;
+  text-align: right;
+}
+.weatherImg {
+  width: 36%;
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.2));
+  margin-right: 4%;
+}
+.weatherShow {
+  font-size: 2.5rem;
+  text-align: center;
+}
+.weatherMinMax {
+  font-size: 1.5rem;
+  text-align: right;
+  font-weight: 600;
+  padding-top: 2%;
+}
+.weatherTime {
+  text-align: right;
+  font-size: 16px;
+  margin-bottom: 4%;
+  padding-top: 2%;
+}
+.weatherAdvice {
+  text-align: right;
+  white-space: pre-line;
+  font-size: 28px;
+  padding-top: 2%;
+}
+
+/* ping icon */
+.pingIcon {
+  margin-right: 10;
+  margin-bottom: -4px;
+  font-size: 24px;
+  color: grey;
+}
+
+.weatherInfo h3 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.sensorLogs h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.sensorInfo p {
+  margin: 5px 0;
+  font-size: 20px;
+}
+
+/* 도면도 보여주기 */
+.additionalContent {
+  opacity: 0;
+  animation: fadeIn 1s forwards 1s; /* 새로운 정보가 서서히 나타남 */
+}
+
+.selectedBuildingImage {
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* 다른 요소 위에 배치 */
+  cursor: pointer;
+}
+
+.floorplanOverlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+}
+
+.hoverBox {
+  position: absolute;
+  left: 260%;
+  width: 260px;
+  padding: 160%;
+  background-color: #f0fbeb;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  z-index: 100;
+}
+
+.sensorImg {
+  width: 20px;
+  margin-right: 8px;
+  margin-bottom: 4px;
+}
+.sensorText {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.divider {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  align-items: center;
+}
+.dividers {
+  margin-top: 20px;
+  margin-bottom: 32px;
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
