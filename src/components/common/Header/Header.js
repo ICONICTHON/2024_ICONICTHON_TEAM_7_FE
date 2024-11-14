@@ -30,11 +30,13 @@ const Header = () => {
     const hours = String(date.getHours()).padStart(2, "0");
     const minutes = String(date.getMinutes()).padStart(2, "0");
     const seconds = String(date.getSeconds()).padStart(2, "0");
-    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    return `현재 일시 ${year}년 ${month}월 ${day}일 - ${hours}:${minutes}:${seconds}`;
   };
 
   return (
-    <div className={styles.all}> {/* 전체 높이 설정 */}
+    <div className={styles.all}>
+      {" "}
+      {/* 전체 높이 설정 */}
       <header className={styles.header}>
         <img
           src={require("../../../assets/images/logo.png")}
@@ -44,9 +46,7 @@ const Header = () => {
           onClick={GoToRoot}
         />
         {/* 오른쪽 상단에 날짜와 시각 표시 */}
-        <div className={styles.dateTime}>
-          {formatDateTime(dateTime)}
-        </div>
+        <div className={styles.dateTime}>{formatDateTime(dateTime)}</div>
       </header>
       <hr className={styles.separator} />
     </div>
