@@ -8,6 +8,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import API from "../../API/api";
 import buildingIcon from "../../assets/images/building_icon.png";
 import singongImage from "../../assets/images/singong.png";
+import locationIcon from "../../assets/images/location_icon.png";
+import floorplan from "../../assets/images/floorplan.png";
+import sunIcon from "../../assets/images/sun_icon.png";
+import cloudyIcon from "../../assets/images/cloudy_icon.png";
+import semicloudyIcon from "../../assets/images/semicloudy_icon.png";
+import cloudyrainIcon from "../../assets/images/cloudyrain_icon.png";
 
 function Main() {
   const [popupContent, setPopupContent] = useState(null);
@@ -521,7 +527,7 @@ function Main() {
               <div className={styles.additionalContent}>
                 <div className={styles.selectedBuildingImage}>
                   <img
-                    src="/Main/floorplan.png"
+                    src={floorplan}
                     alt="신공학관 도면도"
                     ref={imageRef}
                     style={{
@@ -560,7 +566,7 @@ function Main() {
                 }}
               >
                 <img
-                  src="/Main/location_icon.png"
+                  src={locationIcon}
                   alt="위치 아이콘"
                   style={{
                     width: "36px",
@@ -587,12 +593,12 @@ function Main() {
                     <img
                       src={
                         forecast.rain >= "1"
-                          ? "/Main/cloudyrain_icon.png"
+                          ? cloudyrainIcon
                           : forecast.cloudy === "1"
-                          ? "/Main/sun_icon.png"
+                          ? sunIcon
                           : forecast.cloudy === "3"
-                          ? "/Main/semicloudy_icon.png"
-                          : "/Main/cloudy_icon.png"
+                          ? semicloudyIcon
+                          : cloudyIcon
                       }
                       alt="날씨 이미지"
                       className={styles.weatherImg}
