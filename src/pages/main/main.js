@@ -9,11 +9,10 @@ import API from "../../API/api";
 import buildingIcon from "../../assets/images/building_icon.png";
 import singongImage from "../../assets/images/singong.png";
 
-
 function Main() {
   const [popupContent, setPopupContent] = useState(null);
   const [selectedBuilding, setSelectedBuilding] = useState("신공학관");
- 
+
   const [dateTime, setDateTime] = useState(new Date());
   const [forecast, setForecast] = useState(null);
   const [forecast2, setForecast2] = useState(null);
@@ -22,18 +21,13 @@ function Main() {
 
   const handleBuildingClick = (building, buildingInfo) => {
     if (building == "신공학관") {
-    
       setTimeout(() => {
         setSelectedBuilding(building);
-       
       }, 1000);
     }
     setPopupContent(buildingInfo);
   };
-  const closePopup = () => {
-    setPopupContent(null);
-    setSelectedBuilding(null);
-  };
+
   // 날씨 안내 멘트 생성 함수
   const getWeatherAdvice = () => {
     if (!forecast || !forecast2) {
@@ -129,7 +123,7 @@ function Main() {
 
   const handleClick = (id) => {
     // 클릭 시 해당 강의실 페이지로 이동
-    navigate(`/floorcheck`);
+    navigate(`/figures`);
   };
 
   const getSensorIAQValue = (id) => {
@@ -167,7 +161,6 @@ function Main() {
             backgroundColor: color,
             borderRadius: "50%",
             transform: "translate(-50%, -50%)", // 중앙 정렬
-            zIndex: 10,
             cursor: "pointer",
           }}
           className="animated-shape"
@@ -177,23 +170,26 @@ function Main() {
           {/* 호버 시 표시할 박스 */}
           {hoveredIndex === index && (
             <div
+              className={styles.hoverBox}
               style={{
-                top: "30px",
-                left: "50px",
-                width: "220px",
-                padding: "20px",
-                backgroundColor: "rgba(255, 251, 216, 0.85)",
-                border: "1px solid #ccc",
-                boxShadow: "0 2px 5px rgba(0, 0, 0, 0.3)",
-                borderRadius: "16px",
-                zIndex: 100,
+                [coord.id === "6144" ||
+                coord.id === "6119" ||
+                coord.id === "5145"
+                  ? "bottom"
+                  : "bottom"]:
+                  coord.id === "6144" ||
+                  coord.id === "6119" ||
+                  coord.id === "5145"
+                    ? "20%"
+                    : "-100%",
               }}
             >
               {/* 강의실 이름 */}
               <div
                 style={{
-                  fontWeight: "bold",
-                  fontSize: "20px",
+                  fontWeight: "500",
+                  textShadow: "1.5px 1.5px 1.5px lightgray",
+                  fontSize: "1.5rem",
                   marginBottom: "16px",
                   textAlign: "center",
                 }}
@@ -202,131 +198,70 @@ function Main() {
               </div>
               <hr
                 style={{
-                  border: "0.5px solid #FFD8A0",
-                  margin: "8px 8px 16px 8px",
+                  margin: "4px 4px 20px 4px",
                 }}
               />
               {/* 각 항목 표시 */}
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginBottom: "6px",
-                }}
-              >
+              <div className={styles.sensorText}>
                 <img
                   src="/Icons/img_temp.png"
                   alt="온도"
-                  style={{
-                    width: "20px",
-                    marginRight: "8px",
-                    marginBottom: "4px",
-                  }}
+                  className={styles.sensorImg}
                 />
                 <span>온도</span>
                 <span style={{ marginLeft: "auto" }}>
                   {loading ? "--" : "24°C"}
                 </span>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginBottom: "6px",
-                }}
-              >
+              <div className={styles.sensorText}>
                 <img
                   src="/Icons/img_mois.png"
                   alt="습도"
-                  style={{
-                    width: "20px",
-                    marginRight: "8px",
-                    marginBottom: "4px",
-                  }}
+                  className={styles.sensorImg}
                 />
                 <span>습도</span>
                 <span style={{ marginLeft: "auto" }}>
                   {loading ? "--" : "56%"}
                 </span>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginBottom: "6px",
-                }}
-              >
+              <div className={styles.sensorText}>
                 <img
                   src="/Icons/img_tvoc.png"
                   alt="TVOC"
-                  style={{
-                    width: "20px",
-                    marginRight: "8px",
-                    marginBottom: "4px",
-                  }}
+                  className={styles.sensorImg}
                 />
                 <span>TVOC</span>
                 <span style={{ marginLeft: "auto" }}>
                   {loading ? "--" : "23"}
                 </span>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginBottom: "6px",
-                }}
-              >
+              <div className={styles.sensorText}>
                 <img
                   src="/Icons/img_pm2.5.png"
                   alt="PM2.5"
-                  style={{
-                    width: "20px",
-                    marginRight: "8px",
-                    marginBottom: "4px",
-                  }}
+                  className={styles.sensorImg}
                 />
                 <span>PM 2.5</span>
                 <span style={{ marginLeft: "auto" }}>
                   {loading ? "--" : "150um"}
                 </span>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginBottom: "6px",
-                }}
-              >
+              <div className={styles.sensorText}>
                 <img
                   src="/Icons/img_noise.png"
                   alt="소음"
-                  style={{
-                    width: "20px",
-                    marginRight: "8px",
-                    marginBottom: "4px",
-                  }}
+                  className={styles.sensorImg}
                 />
                 <span>소음</span>
                 <span style={{ marginLeft: "auto" }}>
                   {loading ? "--" : "89dB"}
                 </span>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginBottom: "6px",
-                }}
-              >
+              <div className={styles.sensorText}>
                 <img
                   src="/Icons/img_sensor.png"
                   alt="센서 상태"
-                  style={{
-                    width: "20px",
-                    marginRight: "8px",
-                    marginBottom: "4px",
-                  }}
+                  className={styles.sensorImg}
                 />
                 <span>센서 상태</span>
                 <span style={{ marginLeft: "auto" }}>
@@ -344,25 +279,20 @@ function Main() {
     <div>
       <Header />
       <div className={styles.mainContainer}>
-        
         {selectedBuilding === "신공학관" && (
-          <div className={styles.topMessage} style={{ width: "400px" }}>
-            <img src={buildingIcon} 
+          <div className={styles.topMessage}>
+            <img
+              src={buildingIcon}
               alt="현재 건물"
-              style={{ width: "88px", height: "80px", marginRight: "12px", marginTop:"8%"}}
+              style={{
+                width: "88px",
+                height: "80px",
+                marginRight: "12px",
+                marginTop: "8%",
+              }}
             />
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <div
-                className={styles.topMessageDetail}
-                style={{
-                  fontSize: "44px",
-                  textShadow: "3px 3px 1.5px lightgray",
-                  marginTop: "44px",
-                }}
-              >
-                신공학관
-              </div>
-              
+              <div className={styles.topMessageDetail}>신공학관</div>
             </div>
           </div>
         )}
@@ -371,9 +301,8 @@ function Main() {
           <div className={styles.buildings}>
             <div
               className={`${styles.building} ${
-                selectedBuilding !== null && selectedBuilding !== "신공학관"           
-                 
-              } ${selectedBuilding === "신공학관" }`}
+                selectedBuilding !== null && selectedBuilding !== "신공학관"
+              } ${selectedBuilding === "신공학관"}`}
               onClick={() => handleBuildingClick("신공학관", null)}
               onMouseEnter={(e) => {
                 if (selectedBuilding === "신공학관") {
@@ -381,8 +310,7 @@ function Main() {
                 }
               }}
             >
-              <img src={singongImage} 
-              alt="현재 건물"/>
+              <img src={singongImage} alt="현재 건물" />
               <p className={styles.buildingName}>신공학관</p>
               <div className={styles.sensorInfo}>
                 <p>설치된 센서</p>
@@ -415,6 +343,7 @@ function Main() {
             <style jsx>{`
               .animated-shape {
                 position: relative;
+                zindex: 10;
               }
               /* 도형 주위의 확산 링 */
               .ring {
@@ -428,12 +357,14 @@ function Main() {
                 transform: translate(-50%, -50%);
                 animation: pulse 1.5s infinite;
                 opacity: 0;
+                zindex: 1;
               }
               /* 두 번째 링을 조금 더 크게 설정하고 딜레이 추가 */
               .ring:nth-child(2) {
                 width: 52px;
                 height: 52px;
                 animation-delay: 0.75s;
+                zindex: 1;
               }
               /* 확산 효과 애니메이션 */
               @keyframes pulse {
@@ -448,26 +379,30 @@ function Main() {
               }
             `}</style>
           </div>
-
           {/* 오른쪽 날씨 및 로그 섹션 */}
           <div
             className={styles.weatherAndLogs}
             style={{ position: "relative" }}
           >
             <div className={styles.weatherInfo}>
-              <h2>
+              <p
+                style={{
+                  fontSize: "28px",
+                  fontWeight: "bold",
+                }}
+              >
                 <img
                   src="/Main/location_icon.png"
                   alt="위치 아이콘"
                   style={{
-                    width: "28px",
-                    height: "28px",
-                    marginRight: "8px",
-                    marginBottom: "-4px",
+                    width: "36px",
+                    height: "36px",
+                    marginRight: "4%",
+                    marginBottom: "-8px",
                   }} // 이미지 크기와 간격 조절
                 />
                 서울 중구 필동
-              </h2>
+              </p>
 
               {loadingdata ? (
                 <p>Loading weather data...</p>
@@ -492,31 +427,14 @@ function Main() {
                           : "/Main/cloudy_icon.png"
                       }
                       alt="날씨 이미지"
-                      style={{
-                        width: "100px", // 이미지 크기 조정
-                        height: "100px",
-                        filter: "drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.2))",
-                      }}
+                      className={styles.weatherImg}
                     />
-                    <h1
-                      className={styles.weatherTemperature}
-                      style={{
-                        fontSize: "4rem",
-                        fontWeight: "bold",
-                        textAlign: "right",
-                      }}
-                    >
+                    <h1 className={styles.weatherTemperature}>
                       {forecast.temperature}°C
                     </h1>
                   </div>
 
-                  <p
-                    className={styles.weatherRain}
-                    style={{
-                      fontSize: "28px",
-                      textAlign: "center",
-                    }}
-                  >
+                  <p className={styles.weatherShow}>
                     {forecast.rain >= "1"
                       ? "흐리고 비"
                       : forecast.cloudy === "1"
@@ -525,57 +443,22 @@ function Main() {
                       ? "구름많음"
                       : "흐림"}
                   </p>
-                  <p
-                    className={styles.weatherMinMax}
-                    style={{
-                      fontSize: "20px",
-                      textAlign: "right",
-                      fontWeight: "600",
-                      marginTop: "10px",
-                    }}
-                  >
+                  <p className={styles.weatherMinMax}>
                     최고 {forecast2.maxTemp}°C / 최저 {forecast2.minTemp}°C
-                    <span style={{ marginLeft: "16px" }}>
+                    <span style={{ marginLeft: "6%" }}>
                       습도 {forecast.humidity}%
                     </span>
                   </p>
-                  <p
-                    style={{
-                      textAlign: "right",
-                      fontSize: "12px",
-                      marginBottom: "10px",
-                    }}
-                  >
-                    {" "}
-                    {formatDate(dateTime)}
-                  </p>
-                  <p
-                    className={styles.weatherAdvice}
-                    style={{
-                      textAlign: "right",
-                    }}
-                  >
-                    <p
-                      className={styles.weatherAdvice}
-                      style={{
-                        textAlign: "right",
-                        whiteSpace: "pre-line", // 줄바꿈 적용
-                        fontSize: "20px",
-                      }}
-                    >
-                      {getWeatherAdvice()}
-                    </p>
-                  </p>
+                  <p className={styles.weatherTime}> {formatDate(dateTime)}</p>
+
+                  <p className={styles.weatherAdvice}>{getWeatherAdvice()}</p>
                 </>
               ) : (
                 <p>데이터를 불러오는 중입니다.</p>
               )}
             </div>
-
-           
           </div>
         </div>
-        
       </div>
     </div>
   );
