@@ -1,0 +1,44 @@
+.container {
+  width: 100%;
+  font-size: 1.1vw;
+  font-weight: bold;
+  text-align: center;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.2vw;
+  margin-bottom: 1vh;
+}
+
+.box {
+  background-color: white;
+  padding: 2vh 1vw;
+  border-radius: 10px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fanImage {
+  width: 60px;
+  height: 60px;
+  margin-right: 1vw;
+}
+
+.statusText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1.2vw;
+  font-weight: bold;
+}
+
+.onText {
+  color: black;
+}
+
+.offText {
+  color: #d3d3d3;
+}
