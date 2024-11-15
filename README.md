@@ -24,5 +24,5 @@
     <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB">
     <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=for-the-badge&logo=Visual Studio Code&logoColor=white"/>
 <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>
-[![Netlify Status](https://api.netlify.com/api/v1/badges/7bd42d90-58db-4e96-a832-a51777898ede/deploy-status)](https://app.netlify.com/sites/oneandonlyako/deploys)
+
 </p>
