@@ -14,7 +14,7 @@ const WhichSee = ({ selectedClassroom }) => {
       const response = await fetch('https://donggukseoul.com/api/control/classroom-status');
       const data = await response.json();
 
-      const classroomData = data.find(item => item.classroom === selectedClassroom);
+      const classroomData = data.find(item => item.classroom === Number(selectedClassroom));
       if (classroomData) {
         const { time, abnormalValues } = classroomData;
 
@@ -49,7 +49,9 @@ const WhichSee = ({ selectedClassroom }) => {
   };
 
   useEffect(() => {
-    fetchData();
+    if (selectedClassroom) {
+      fetchData();
+    }
   }, [selectedClassroom]);
 
   return (
