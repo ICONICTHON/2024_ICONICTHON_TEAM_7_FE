@@ -14,7 +14,7 @@ const WhichSee1 = () => {
       <span>[2024.11.15/10:42] Pan</span> <span className={styles.off}>OFF</span>
       </div>
       <div className={styles.logItem}>
-      <span>[2024.11.15/10:26] Pan</span> <span className={styles.off}>ON</span>
+      <span>[2024.11.15/10:26] Pan</span> <span className={styles.on}>ON</span>
       </div>
     </div>
   );
