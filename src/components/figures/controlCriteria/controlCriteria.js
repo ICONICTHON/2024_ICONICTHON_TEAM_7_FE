@@ -14,19 +14,19 @@ const controlCriteria = ({ title }) => {
         </div>
         <div className={styles.criteriaItem}>
           <span>humidity</span>
-          <span>55%</span>
+          <span>30% 이하, 70% 이상</span>
         </div>
         <div className={styles.criteriaItem}>
           <span>TVOC</span>
-          <span>100</span>
+          <span>1000㎍/m³</span>
         </div>
         <div className={styles.criteriaItem}>
           <span>PM2.5</span>
-          <span>100</span>
+          <span>41㎍/m³</span>
         </div>
         <div className={styles.criteriaItem}>
           <span>Noise</span>
-          <span>100</span>
+          <span>60db</span>
         </div>
         </div>
       </div>
