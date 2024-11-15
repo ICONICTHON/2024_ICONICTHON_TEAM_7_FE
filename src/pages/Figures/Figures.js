@@ -23,12 +23,7 @@ function Figures() {
   const [selectedValues, setSelectedValues] = useState([]);
   const [highlightedIndex, setHighlightedIndex] = useState(null);
   const [activeComponent, setActiveComponent] = useState("nextControl");
-
-  const {
-    data: sensorData,
-    setSelectedSensorName,
-    loading,
-  } = useContext(SensorDataContext);
+  const { data: sensorData, setSelectedSensorName, loading } = useContext(SensorDataContext);
 
   useEffect(() => {
     if (selectedOption) {
@@ -152,12 +147,9 @@ function Figures() {
                   </span>
                 </div>
                 <div className={styles.logBox}>
-                  {activeComponent === "nextControl" ? (
-                    <WhichSee />
-                  ) : (
-                    <WhichSee1 />
-                  )}
+                  {activeComponent === 'nextControl' ? <WhichSee selectedClassroom={selectedOption} /> : <WhichSee1 />}
                 </div>
+
               </div>
             </div>
           </div>
