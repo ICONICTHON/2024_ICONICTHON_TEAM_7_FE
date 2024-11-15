@@ -25,12 +25,13 @@ function Figures() {
   const [activeComponent, setActiveComponent] = useState("nextControl");
   const { data: sensorData, setSelectedSensorName, loading } = useContext(SensorDataContext);
 
+  // roomNumber가 변경되면 selectedOption도 자동으로 업데이트
   useEffect(() => {
-    if (selectedOption) {
-      setSelectedSensorName(selectedOption);
-      navigate(`/figures/${selectedOption}`); // URL을 선택된 강의실 번호로 변경
+    if (roomNumber) {
+      setSelectedOption(roomNumber);
+      setSelectedSensorName(roomNumber);
     }
-  }, [selectedOption, setSelectedSensorName, navigate]);
+  }, [roomNumber, setSelectedSensorName]);
 
   const handleNEBSelect = (value) => {
     setSelectedOption(value);
