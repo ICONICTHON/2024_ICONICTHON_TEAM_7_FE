@@ -58,7 +58,7 @@ function Figures() {
                   alt="building"
                   className={styles.titleImg}
                 />
-               <div style={{ fontSize: '25px' }}>{buildingName}</div>
+                <div style={{ fontSize: '25px' }}>{buildingName}</div>
               </div>
               <NEBDropdown onSelect={handleNEBSelect} defaultValue={selectedOption} />
             </div>
@@ -105,7 +105,7 @@ function Figures() {
                   </span>
                 </div>
                 <div className={styles.logBox}>
-                  {activeComponent === 'nextControl' ? <WhichSee /> : <WhichSee1 />}
+                  {activeComponent === 'nextControl' ? <WhichSee selectedClassroom={selectedOption} /> : <WhichSee1 />}
                 </div>
               </div>
             </div>
