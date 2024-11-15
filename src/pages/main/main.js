@@ -14,6 +14,12 @@ import sunIcon from "../../assets/images/sun_icon.png";
 import cloudyIcon from "../../assets/images/cloudy_icon.png";
 import semicloudyIcon from "../../assets/images/semicloudy_icon.png";
 import cloudyrainIcon from "../../assets/images/cloudyrain_icon.png";
+import moisture from "../../assets/images/hoverBoxIcons/img_mois.png";
+import noise from "../../assets/images/hoverBoxIcons/img_noise.png";
+import pm25 from "../../assets/images/hoverBoxIcons/img_pm2.5.png";
+import sensor from "../../assets/images/hoverBoxIcons/img_sensor.png";
+import temperature from "../../assets/images/hoverBoxIcons/img_temp.png";
+import tvoc from "../../assets/images/hoverBoxIcons/img_tvoc.png";
 
 function Main() {
   const [popupContent, setPopupContent] = useState(null);
@@ -311,7 +317,7 @@ function Main() {
                 <>
                   <div className={styles.sensorText}>
                     <img
-                      src="/Icons/img_temp.png"
+                      src={temperature}
                       alt="온도"
                       className={styles.sensorImg}
                     />
@@ -337,7 +343,7 @@ function Main() {
                   </div>
                   <div className={styles.sensorText}>
                     <img
-                      src="/Icons/img_mois.png"
+                      src={moisture}
                       alt="습도"
                       className={styles.sensorImg}
                     />
@@ -362,11 +368,7 @@ function Main() {
                     ></span>
                   </div>
                   <div className={styles.sensorText}>
-                    <img
-                      src="/Icons/img_tvoc.png"
-                      alt="TVOC"
-                      className={styles.sensorImg}
-                    />
+                    <img src={tvoc} alt="TVOC" className={styles.sensorImg} />
                     <span>TVOC</span>
                     <span style={{ marginLeft: "auto" }}>
                       {loading ? "--" : `${sensorData.TVOC?.value}㎍/m³`}
@@ -388,11 +390,7 @@ function Main() {
                     ></span>
                   </div>
                   <div className={styles.sensorText}>
-                    <img
-                      src="/Icons/img_pm2.5.png"
-                      alt="PM2.5"
-                      className={styles.sensorImg}
-                    />
+                    <img src={pm25} alt="PM2.5" className={styles.sensorImg} />
                     <span>PM 2.5</span>
                     <span style={{ marginLeft: "auto" }}>
                       {loading
@@ -416,11 +414,7 @@ function Main() {
                     ></span>
                   </div>
                   <div className={styles.sensorText}>
-                    <img
-                      src="/Icons/img_noise.png"
-                      alt="소음"
-                      className={styles.sensorImg}
-                    />
+                    <img src={noise} alt="소음" className={styles.sensorImg} />
                     <span>소음</span>
 
                     <span style={{ marginLeft: "auto" }}>
@@ -443,7 +437,7 @@ function Main() {
                   </div>
                   <div className={styles.sensorText}>
                     <img
-                      src="/Icons/img_sensor.png"
+                      src={sensor}
                       alt="센서 상태"
                       className={styles.sensorImg}
                     />
