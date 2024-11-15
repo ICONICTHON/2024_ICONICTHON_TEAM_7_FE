@@ -124,7 +124,7 @@ function Figures() {
               </div>
             </div>
             <div className={styles.rightContainer}>
-              <AlarmBox title="Status" />
+            <AlarmBox title="Status" selectedClassroom={selectedOption} />
               <ControlCriteria title="Control Criteria" />
               <div className={styles.toggleContainer}>
                 <div className={styles.toggleTitles}>
