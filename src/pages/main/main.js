@@ -601,7 +601,6 @@ function Main() {
                       {forecast.temperature}°C
                     </h1>
                   </div>
-
                   <p className={styles.weatherShow}>
                     {forecast.rain >= "1"
                       ? "흐리고 비"
@@ -613,7 +612,7 @@ function Main() {
                   </p>
                   <p className={styles.weatherMinMax}>
                     최고 {forecast2.maxTemp}°C / 최저 {forecast2.minTemp}°C
-                    <span style={{ marginLeft: "6%" }}>
+                    <span style={{ marginLeft: "4%" }}>
                       습도 {forecast.humidity}%
                     </span>
                   </p>
